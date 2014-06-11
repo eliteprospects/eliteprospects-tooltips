@@ -1,0 +1,29 @@
+{
+  "name": "Eliteprospects Tooltips",
+  "version": "0.1.0",
+  "authors": [
+    "Carl Grundberg <carl.grundberg@menmo.se>"
+  ],
+  "description": "Show detailed information from Eliteprospects.com for hockey players.",
+  "main": "eptooltip.js",
+  "moduleType": [
+    "globals"
+  ],
+  "keywords": [
+    "eliteprospects",
+    "hockey"
+  ],
+  "license": "MIT",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "opentip": "~2.4.6",
+    "handlebars": "~1.3.0"
+  }
+}

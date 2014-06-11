@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>Eliteprospects player tooltips demo</title>
+    <style>
+        body {
+            margin: 50px;
+        }
+    </style>
+</head>
+<body>
+    <a href="http://www.eliteprospects.com/player.php?player=710" target="_blank">Peter Forsberg</a>
+
+    <link rel="stylesheet" media="all" href="bower_components/opentip/css/opentip.css" />
+    <script src="bower_components/opentip/downloads/opentip-native.min.js"></script>
+    <script src="bower_components/handlebars/handlebars.js"></script>
+    <script id="player-template" type="text/x-handlebars-template">
+        <b>{{ firstName }} {{ lastName }}</b>
+        <img src="http://files.eliteprospects.com/layout/players/{{ imageUrl }}" width="170"/>
+    </script>
+    <script src="eptooltip.js"></script>
+</body>
+</html>
