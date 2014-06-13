@@ -4,7 +4,9 @@ var playerApiEndpoint = 'http://api.eliteprospects.com/beta/players/[playerId]';
 Opentip.prototype.setContent = function(content) {
     if(content) {
         var template = Handlebars.getTemplate('player');
-        this.content = template(JSON.parse(content).data);
+        var player = JSON.parse(content).data;
+        player.isActive = player.playerStatus == 'ACTIVE';
+        this.content = template(player);
     }
     this._newContent = true;
     if (this.visible) {
@@ -14,7 +16,7 @@ Opentip.prototype.setContent = function(content) {
 
 Opentip.styles.ep = {
     extends: 'glass',
-    target: true,
+//    target: true,
     tipJoint: 'left'
 };
 

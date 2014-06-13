@@ -1,2 +1,62 @@
-<b>{{ firstName }} {{ lastName }}</b>
+<h3>
+    <img src="http://beta.eliteprospects.com/images/flags/32/{{ country.abbreviation }}.png"/>
+    {{ firstName }} {{ lastName }}
+</h3>
+
 <img src="http://files.eliteprospects.com/layout/players/{{ imageUrl }}" width="170"/>
+
+<table>
+    <tr>
+        <td>
+            Team:
+            {{#if isActive }}
+                {{ latestPlayerStats.team.name }}
+            {{else}}
+                {{ playerStatus }}
+            {{/if}}
+        </td>
+        <td>
+            Nation:
+            {{ country.name }}
+        </td>
+    </tr>
+    <tr>
+        <td>
+            Position:
+            {{ playerPosition }}
+        </td>
+        <td>
+            Birthplace:
+            {{ birthPlace.name }}, {{ birthPlace.country.abbreviation }}
+        </td>
+    </tr>
+    <tr>
+        <td>
+            Shoots:
+            {{ shoots }}
+        </td>
+        <td>
+            Birthday:
+            {{ dateOfBirth }}
+        </td>
+    </tr>
+    <tr>
+        <td>
+            Youth team:
+            {{ clubOfOrigin.name }}
+        </td>
+        <td>
+
+        </td>
+    </tr>
+    <tr>
+        <td>
+            Height:
+            {{  height }}
+        </td>
+        <td>
+            Weight:
+            {{ weight }}
+        </td>
+    </tr>
+</table>
