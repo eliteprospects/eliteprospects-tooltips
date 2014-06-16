@@ -1,0 +1,28 @@
+{
+  "name": "eptooltips",
+  "version": "0.1.0",
+  "description": "Show detailed information about hockey players directly on your site.",
+  "main": "eptooltip.js",
+  "devDependencies": {
+    "gulp": "^3.8.0",
+    "gulp-concat": "^2.2.0",
+    "gulp-uglify": "^0.3.0",
+    "rimraf": "^2.2.8",
+    "gulp-handlebars": "^2.1.0",
+    "gulp-define-module": "^0.1.1",
+    "streamqueue": "^0.1.1"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/menmo/eliteprospects-tooltips.git"
+  },
+  "author": "",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/menmo/eliteprospects-tooltips/issues"
+  },
+  "homepage": "https://github.com/menmo/eliteprospects-tooltips"
+}

@@ -4,14 +4,15 @@
   "authors": [
     "Carl Grundberg <carl.grundberg@menmo.se>"
   ],
-  "description": "Show detailed information from Eliteprospects.com for hockey players.",
-  "main": "eptooltip.js",
+  "description": "Show detailed information about hockey players directly on your site.",
+  "main": "eptooltips.js",
   "moduleType": [
     "globals"
   ],
   "keywords": [
     "eliteprospects",
-    "hockey"
+    "hockey",
+    "tooltip"
   ],
   "license": "MIT",
   "private": true,
