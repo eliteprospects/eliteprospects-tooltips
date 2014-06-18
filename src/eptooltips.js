@@ -22,7 +22,7 @@ Opentip.prototype.setContent = function(content) {
 // Style for tooltip.
 Opentip.styles.ep = {
     extends: 'glass',
-//    target: true,
+    className: 'ep',
     tipJoint: 'left'
 };
 

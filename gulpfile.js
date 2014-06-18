@@ -3,6 +3,7 @@ var concat = require('gulp-concat');
 var uglify = require('gulp-uglify');
 var handlebars = require('gulp-handlebars');
 var defineModule = require('gulp-define-module');
+var css2js = require("gulp-css2js");
 var streamqueue = require('streamqueue');
 var rimraf = require('rimraf');
 
@@ -12,6 +13,10 @@ var paths = {
         'bower_components/handlebars/handlebars.runtime.min.js'
     ],
     templates: 'templates/*.handlebars',
+    css: [
+        'bower_components/opentip/css/opentip.css',
+        'css/*.css'
+    ],
     src: 'src/*.js',
     build: 'eptooltips.min.js'
 };
@@ -33,6 +38,12 @@ gulp.task('bundle', ['clean'], function() {
             .pipe(defineModule('plain', {
                 wrapper: 'Handlebars.templates = Handlebars.templates || {}; Handlebars.templates["<%= name %>"] = <%= handlebars %>'
             }))
+            .pipe(uglify())
+    );
+
+    stream.queue(
+        gulp.src(paths.css)
+            .pipe(css2js())
             .pipe(uglify())
     );
 

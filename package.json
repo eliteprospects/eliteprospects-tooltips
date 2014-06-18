@@ -10,7 +10,9 @@
     "rimraf": "^2.2.8",
     "gulp-handlebars": "^2.1.0",
     "gulp-define-module": "^0.1.1",
-    "streamqueue": "^0.1.1"
+    "streamqueue": "^0.1.1",
+    "gulp-minify-css": "^0.3.4",
+    "gulp-css2js": "^1.0.1"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
