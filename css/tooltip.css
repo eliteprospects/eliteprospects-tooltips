@@ -1,0 +1,55 @@
+/* OPENTIP OVERRIDES */
+.opentip-container .opentip {
+	padding: 0;
+	overflow: hidden;
+	border-radius: 3px;
+	font-family: sans-serif;
+}
+
+/* EP TOOLTIP STYLING */
+.epPlayer {
+	border-top: 10px solid #0a2f40;
+	padding: 20px;
+}
+
+.epPlayer:after {
+	content: "";
+	display: table;
+	clear: both;
+}
+
+.epPlayer .profilePhoto {
+	width: 150px;
+	margin: 0 auto;
+}
+
+.epPlayer .profilePhoto img {
+	max-width: 100%;
+}
+
+.epPlayer h3 {
+	margin: 5px;
+}
+
+.epPlayer h3 img {
+	vertical-align: middle;
+}
+
+.epPlayer .playerData {
+	font-size: 11px;
+	width: 50%;
+	float: left;
+}
+
+.epPlayer .playerData table {
+	table-layout: fixed;
+}
+
+.epPlayer .playerData td {
+	text-align: left;
+}
+
+.epPlayer .playerData td:first-child {
+	text-align: right;
+	color: #cccccc;
+}
