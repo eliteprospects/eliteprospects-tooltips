@@ -1,13 +1,15 @@
 var gulp = require('gulp');
 var concat = require('gulp-concat');
 var uglify = require('gulp-uglify');
+var rename = require('gulp-rename');
+var bump = require('gulp-bump');
 var handlebars = require('gulp-handlebars');
 var defineModule = require('gulp-define-module');
 var css2js = require("gulp-css2js");
 var streamqueue = require('streamqueue');
 var rimraf = require('rimraf');
 var fs = require('fs');
-var version =  JSON.parse(fs.readFileSync('./package.json', 'utf8')).version;
+var pkg =  JSON.parse(fs.readFileSync('./package.json', 'utf8'));
 
 var paths = {
     libs: [
@@ -20,8 +22,13 @@ var paths = {
         'css/*.css'
     ],
     src: 'src/*.js',
-    build: 'eptooltips-'+version+'.min.js'
 };
+
+gulp.task('bump', function(cb) {
+    return gulp.src(['./bower.json', './package.json'])
+        .pipe(bump({ type: gulp.env.type }))
+        .pipe(gulp.dest('./'));
+});
 
 gulp.task('clean', function(cb){
     rimraf('build/', cb);
@@ -53,10 +60,12 @@ gulp.task('bundle', ['clean'], function() {
 
     return stream.done()
         .pipe(uglify())
-        .pipe(concat(paths.build))
+        .pipe(concat(pkg.name + '.min.js'))
         .pipe(defineModule('plain', {
             wrapper: '(function(){<%= contents %>}());'
         }))
+        .pipe(gulp.dest('build'))
+        .pipe(rename(pkg.name + '-' + pkg.version + '.min.js'))
         .pipe(gulp.dest('build'));
 });
 

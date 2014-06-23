@@ -1,6 +1,6 @@
 {
   "name": "eptooltips",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "Show detailed information about hockey players directly on your site.",
   "main": "eptooltip.js",
   "devDependencies": {
@@ -12,7 +12,9 @@
     "gulp-define-module": "^0.1.1",
     "streamqueue": "^0.1.1",
     "gulp-minify-css": "^0.3.4",
-    "gulp-css2js": "^1.0.1"
+    "gulp-css2js": "^1.0.1",
+    "gulp-rename": "^1.2.0",
+    "gulp-bump": "^0.1.8"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
