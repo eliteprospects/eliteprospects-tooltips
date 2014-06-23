@@ -1,12 +1,12 @@
 <div class="epPlayer">
-    <div class="profilePhoto">
+    <div class="epPlayerPhoto">
         <img src="http://files.eliteprospects.com/layout/players/{{ imageUrl }}"/>
     </div>
-    <h3>
+    <div class="epPlayerName">
         <img src="http://beta.eliteprospects.com/images/flags/32/{{ country.iso3166_3 }}.png"/>
         {{ firstName }} {{ lastName }}
-    </h3>
-    <div class="playerData">
+    </div>
+    <div class="epPlayerData">
         <table>
             <tbody>
                 <tr>
@@ -41,13 +41,13 @@
         </table>
     </div>
 
-    <div class="playerData">
+    <div class="epPlayerData">
         <table>
             <tbody>
                 <tr>
                     <td>Birthplace:</td>
                     <td>
-                        {{ birthPlace.name }}, {{ birthPlace.country.abbreviation }}
+                        {{ birthPlace.name }}{{#if birthPlace.country}}, {{ birthPlace.country.abbreviation }}{{/if}}
                     </td>
                 </tr>
                 <tr>
@@ -58,15 +58,19 @@
                     <td>Youth team:</td>
                     <td>{{ clubOfOrigin.name }}</td>
                 </tr>
-                <tr>
+                <!--<tr>
                     <td>Height:</td>
                     <td>{{  height }}</td>
                 </tr>
                 <tr>
                     <td>Weight:</td>
                     <td>{{ weight }}</td>
-                </tr>
+                </tr>-->
             </tbody>
         </table>
+    </div>
+
+    <div class="epPlayerFooter">
+         Click for full player profile.
     </div>
 </div>

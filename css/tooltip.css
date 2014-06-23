@@ -10,6 +10,7 @@
 .epPlayer {
 	border-top: 10px solid #0a2f40;
 	padding: 20px;
+    font-size: 11px;
 }
 
 .epPlayer:after {
@@ -18,40 +19,48 @@
 	clear: both;
 }
 
-.epPlayer .profilePhoto {
+.epPlayer .epPlayerPhoto {
 	height: 120px;
 	margin: 0 auto;
 }
 
-.epPlayer .profilePhoto img {
+.epPlayer .epPlayerPhoto img {
 	max-width: 100%;
     max-height: 100%;
 }
 
-.epPlayer h3 {
+.epPlayer .epPlayerName {
 	margin: 5px;
+    font-size: 14px;
+    font-weight: bold;
+    text-align: center;
 }
 
-.epPlayer h3 img {
+.epPlayer .epPlayerName img {
 	vertical-align: middle;
 }
 
-.epPlayer .playerData {
-	font-size: 11px;
+.epPlayer .epPlayerData {
 	width: 50%;
 	float: left;
 }
 
-.epPlayer .playerData table {
-	table-layout: fixed;
+.epPlayer .epPlayerData table {
+	/*table-layout: fixed;*/
 }
 
-.epPlayer .playerData td {
+.epPlayer .epPlayerData td {
 	text-align: left;
     vertical-align: top;
 }
 
-.epPlayer .playerData td:first-child {
+.epPlayer .epPlayerData td:first-child {
 	text-align: right;
 	color: #cccccc;
+}
+
+.epPlayer .epPlayerFooter {
+    clear: both;
+    font-style: italic;
+    margin-top: 15px;
 }
