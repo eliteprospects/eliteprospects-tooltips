@@ -6,11 +6,13 @@ var defineModule = require('gulp-define-module');
 var css2js = require("gulp-css2js");
 var streamqueue = require('streamqueue');
 var rimraf = require('rimraf');
+var fs = require('fs');
+var version =  JSON.parse(fs.readFileSync('./package.json', 'utf8')).version;
 
 var paths = {
     libs: [
-        'bower_components/opentip/downloads/opentip-native.min.js',
-        'bower_components/handlebars/handlebars.runtime.min.js'
+        'bower_components/opentip/downloads/opentip-native.js',
+        'bower_components/handlebars/handlebars.runtime.js'
     ],
     templates: 'templates/*.handlebars',
     css: [
@@ -18,7 +20,7 @@ var paths = {
         'css/*.css'
     ],
     src: 'src/*.js',
-    build: 'eptooltips.min.js'
+    build: 'eptooltips-'+version+'.min.js'
 };
 
 gulp.task('clean', function(cb){
@@ -38,21 +40,19 @@ gulp.task('bundle', ['clean'], function() {
             .pipe(defineModule('plain', {
                 wrapper: 'Handlebars.templates = Handlebars.templates || {}; Handlebars.templates["<%= name %>"] = <%= handlebars %>'
             }))
-            .pipe(uglify())
     );
 
     stream.queue(
         gulp.src(paths.css)
             .pipe(css2js())
-            .pipe(uglify())
     );
 
     stream.queue(
         gulp.src(paths.src)
-            .pipe(uglify())
     );
 
     return stream.done()
+        .pipe(uglify())
         .pipe(concat(paths.build))
         .pipe(defineModule('plain', {
             wrapper: '(function(){<%= contents %>}());'
