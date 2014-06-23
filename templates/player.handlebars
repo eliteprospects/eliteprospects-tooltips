@@ -15,7 +15,7 @@
                         {{#if isActive }}
                             {{ latestPlayerStats.team.name }}
                         {{else}}
-                            {{ playerStatus }}
+                            {{ status }}
                         {{/if}}
                     </td>
                 </tr>
@@ -25,11 +25,17 @@
                 </tr>
                 <tr>
                     <td>Position:</td>
-                    <td>{{ playerPosition }}</td>
+                    <td>{{ position }}</td>
                 </tr>
                 <tr>
                     <td>Shoots:</td>
-                    <td>{{ shoots }}</td>
+                    <td>
+                        {{#if isPlayer }}
+                            {{ shoots }}
+                        {{else}}
+                            -
+                        {{/if}}
+                    </td>
                 </tr>
             </tbody>
         </table>
