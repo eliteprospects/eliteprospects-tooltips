@@ -54,6 +54,9 @@ gulp.task('bundle', ['clean'], function() {
 
     return stream.done()
         .pipe(concat(paths.build))
+        .pipe(defineModule('plain', {
+            wrapper: '(function(){<%= contents %>}());'
+        }))
         .pipe(gulp.dest('build'));
 });
 
