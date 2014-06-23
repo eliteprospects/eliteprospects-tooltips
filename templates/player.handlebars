@@ -1,62 +1,66 @@
-<h3>
-    <img src="http://beta.eliteprospects.com/images/flags/32/{{ country.abbreviation }}.png"/>
-    {{ firstName }} {{ lastName }}
-</h3>
+<div class="epPlayer">
+    <div class="profilePhoto">
+        <img src="http://files.eliteprospects.com/layout/players/{{ imageUrl }}"/>
+    </div>
+    <h3>
+        <img src="http://beta.eliteprospects.com/images/flags/32/{{ country.abbreviation }}.png"/>
+        {{ firstName }} {{ lastName }}
+    </h3>
+    <div class="playerData">
+        <table>
+            <tbody>
+                <tr>
+                    <td>Team:</td>
+                    <td>
+                        {{#if isActive }}
+                            {{ latestPlayerStats.team.name }}
+                        {{else}}
+                            {{ playerStatus }}
+                        {{/if}}
+                    </td>
+                </tr>
+                <tr>
+                    <td>Nation:</td>
+                    <td>{{ country.name }}</td>
+                </tr>
+                <tr>
+                    <td>Position:</td>
+                    <td>{{ playerPosition }}</td>
+                </tr>
+                <tr>
+                    <td>Shoots:</td>
+                    <td>{{ shoots }}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
 
-<img src="http://files.eliteprospects.com/layout/players/{{ imageUrl }}" width="170"/>
-
-<table>
-    <tr>
-        <td>
-            Team:
-            {{#if isActive }}
-                {{ latestPlayerStats.team.name }}
-            {{else}}
-                {{ playerStatus }}
-            {{/if}}
-        </td>
-        <td>
-            Nation:
-            {{ country.name }}
-        </td>
-    </tr>
-    <tr>
-        <td>
-            Position:
-            {{ playerPosition }}
-        </td>
-        <td>
-            Birthplace:
-            {{ birthPlace.name }}, {{ birthPlace.country.abbreviation }}
-        </td>
-    </tr>
-    <tr>
-        <td>
-            Shoots:
-            {{ shoots }}
-        </td>
-        <td>
-            Birthday:
-            {{ dateOfBirth }}
-        </td>
-    </tr>
-    <tr>
-        <td>
-            Youth team:
-            {{ clubOfOrigin.name }}
-        </td>
-        <td>
-
-        </td>
-    </tr>
-    <tr>
-        <td>
-            Height:
-            {{  height }}
-        </td>
-        <td>
-            Weight:
-            {{ weight }}
-        </td>
-    </tr>
-</table>
+    <div class="playerData">
+        <table>
+            <tbody>
+                <tr>
+                    <td>Birthplace:</td>
+                    <td>
+                        {{ birthPlace.name }}, {{ birthPlace.country.abbreviation }}
+                    </td>
+                </tr>
+                <tr>
+                    <td>Birthday:</td>
+                    <td>{{ dateOfBirth }}</td>
+                </tr>
+                <tr>
+                    <td>Youth team:</td>
+                    <td>{{ clubOfOrigin.name }}</td>
+                </tr>
+                <tr>
+                    <td>Height:</td>
+                    <td>{{  height }}</td>
+                </tr>
+                <tr>
+                    <td>Weight:</td>
+                    <td>{{ weight }}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

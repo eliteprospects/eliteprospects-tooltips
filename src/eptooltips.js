@@ -23,7 +23,13 @@ Opentip.prototype.setContent = function(content) {
 Opentip.styles.ep = {
     extends: 'glass',
     className: 'ep',
-    tipJoint: 'left'
+    tipJoint: 'left',
+    background: '#ffffff',
+    borderRadius: 3,
+    borderWidth: 0,
+    shadowOffset: [0,4],
+    shadowColor: 'rgba(0,0,0,0.15)',
+    shadowBlur: 25
 };
 
 // Find all links on the page and attach a tooltip.
