@@ -19,12 +19,13 @@
 }
 
 .epPlayer .profilePhoto {
-	width: 150px;
+	height: 120px;
 	margin: 0 auto;
 }
 
 .epPlayer .profilePhoto img {
 	max-width: 100%;
+    max-height: 100%;
 }
 
 .epPlayer h3 {
@@ -47,6 +48,7 @@
 
 .epPlayer .playerData td {
 	text-align: left;
+    vertical-align: top;
 }
 
 .epPlayer .playerData td:first-child {
