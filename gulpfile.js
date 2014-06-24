@@ -7,6 +7,7 @@ var handlebars = require('gulp-handlebars');
 var defineModule = require('gulp-define-module');
 var css2js = require("gulp-css2js");
 var cssBase64 = require('gulp-css-base64');
+var deploy = require("gulp-gh-pages");
 var streamqueue = require('streamqueue');
 var rimraf = require('rimraf');
 var fs = require('fs');
@@ -24,6 +25,11 @@ var paths = {
     ],
     src: 'src/*.js',
 };
+
+gulp.task('deploy', function () {
+    gulp.src("./build/**/*")
+        .pipe(deploy());
+});
 
 gulp.task('bump', function(cb) {
     return gulp.src(['./bower.json', './package.json'])

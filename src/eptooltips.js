@@ -1,15 +1,29 @@
 // Regex for finding player links.
 var playerLinkPattern = /http:\/\/www\.eliteprospects\.com\/player\.php\?player=(\d+)/;
 
+// Minimize response by only requesting used fields
+var playerFields = [
+    'firstName',
+    'lastName',
+    'dateOfBirth',
+    'birthPlace.name',
+    'birthPlace.country.name',
+    'clubOfOrigin.name',
+//    'height',
+//    'weight',
+    'playerStatus',
+    'playerPosition',
+//    'shoots',
+    'imageUrl',
+    'country.name',
+    'country.iso3166_3',
+    'latestPlayerStats.team.name'
+];
 // Endpoint to get data about the player, [playerId] is replaced with the actual id.
-var playerFields = 'firstName,lastName,dateOfBirth,birthPlace,clubOfOrigin,height,weight,playerStatus,playerPosition,shoots,imageUrl,country,latestPlayerStats';
-var playerApiEndpoint = 'http://api.eliteprospects.com/beta/players/[playerId]?fields='+playerFields;
+var playerApiEndpoint = 'http://api.eliteprospects.com/beta/players/[playerId]?fields='+playerFields.join(',');
 
 var capitalize = function(s) {
-    if(s) {
-        s = s.charAt(0).toUpperCase() + s.slice(1).toLowerCase();
-    }
-    return s;
+    return s ? s.charAt(0).toUpperCase() + s.slice(1).toLowerCase() : s;
 };
 
 // Custom helper for printing default value if empty
