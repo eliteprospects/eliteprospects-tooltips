@@ -61,11 +61,11 @@ gulp.task('bundle', ['clean'], function() {
     );
 
     return stream.done()
-        .pipe(uglify())
         .pipe(concat(pkg.name + '.min.js'))
         .pipe(defineModule('plain', {
             wrapper: '(function(){<%= contents %>}());'
         }))
+        .pipe(uglify())
         .pipe(gulp.dest('build'))
         .pipe(rename(pkg.name + '-' + pkg.version + '.min.js'))
         .pipe(gulp.dest('build'));
