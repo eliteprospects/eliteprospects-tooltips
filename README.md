@@ -26,13 +26,12 @@ TODO: options.
 ### Requirements (install globally)
 
 * node
-* gulp
 * bower
+* gulp
 
 ### Install
 
-`npm install`
-
-`bower install`
-
-`gulp`
+    npm install
+    bower install
+    gulp
+```
