@@ -7,7 +7,7 @@ var playerFields = [
     'lastName',
     'dateOfBirth',
     'birthPlace.name',
-    'birthPlace.country.name',
+    'birthPlace.country.abbreviation    ',
     'clubOfOrigin.name',
 //    'height',
 //    'weight',
