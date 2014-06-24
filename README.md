@@ -34,4 +34,3 @@ TODO: options.
     npm install
     bower install
     gulp
-```
