@@ -15,28 +15,28 @@
                         {{#if isActive }}
                             {{ latestPlayerStats.team.name }}
                         {{else}}
-                            {{ status }}
+                            <em>{{ status }}</em>
                         {{/if}}
                     </td>
                 </tr>
                 <tr>
                     <td>Nation:</td>
-                    <td>{{ country.name }}</td>
+                    <td>{{ifnotempty country.name }}</td>
                 </tr>
                 <tr>
                     <td>Position:</td>
-                    <td>{{ position }}</td>
+                    <td>{{ifnotempty position }}</td>
                 </tr>
-                <tr>
+                <!--<tr>
                     <td>Shoots:</td>
                     <td>
                         {{#if isPlayer }}
-                            {{ shoots }}
+                            {{ifnotempty shoots }}
                         {{else}}
                             -
                         {{/if}}
                     </td>
-                </tr>
+                </tr>-->
             </tbody>
         </table>
     </div>
@@ -47,24 +47,24 @@
                 <tr>
                     <td>Birthplace:</td>
                     <td>
-                        {{ birthPlace.name }}{{#if birthPlace.country}}, {{ birthPlace.country.abbreviation }}{{/if}}
+                        {{ifnotempty birthPlace.name }}{{#if birthPlace.country}}, {{ birthPlace.country.abbreviation }}{{/if}}
                     </td>
                 </tr>
                 <tr>
                     <td>Birthday:</td>
-                    <td>{{ dateOfBirth }}</td>
+                    <td>{{ifnotempty dateOfBirth }}</td>
                 </tr>
                 <tr>
                     <td>Youth team:</td>
-                    <td>{{ clubOfOrigin.name }}</td>
+                    <td>{{ifnotempty clubOfOrigin.name }}</td>
                 </tr>
                 <!--<tr>
                     <td>Height:</td>
-                    <td>{{  height }}</td>
+                    <td>{{ifnotempty  height }}</td>
                 </tr>
                 <tr>
                     <td>Weight:</td>
-                    <td>{{ weight }}</td>
+                    <td>{{ifnotempty weight }}</td>
                 </tr>-->
             </tbody>
         </table>
@@ -72,5 +72,6 @@
 
     <div class="epPlayerFooter">
          Click for full player profile.
+        <div class="epBrandLogo"></div>
     </div>
 </div>

@@ -6,6 +6,7 @@ var bump = require('gulp-bump');
 var handlebars = require('gulp-handlebars');
 var defineModule = require('gulp-define-module');
 var css2js = require("gulp-css2js");
+var cssBase64 = require('gulp-css-base64');
 var streamqueue = require('streamqueue');
 var rimraf = require('rimraf');
 var fs = require('fs');
@@ -51,6 +52,7 @@ gulp.task('bundle', ['clean'], function() {
 
     stream.queue(
         gulp.src(paths.css)
+            .pipe(cssBase64())
             .pipe(css2js())
     );
 
