@@ -27,13 +27,13 @@ var paths = {
 };
 
 gulp.task('index', ['bundle'], function() {
-    gulp.src('./templates/index.html')
+    return gulp.src('./templates/index.html')
         .pipe(inject(gulp.src(["./build/*.js"], {read: false}), { ignorePath: 'build/', addRootSlash: false }))
         .pipe(gulp.dest("./build"));
 });
 
-gulp.task('deploy', function () {
-    gulp.src("./build/**/*")
+gulp.task('deploy', ['bundle', 'index'], function () {
+    return gulp.src("./build/**/*")
         .pipe(deploy());
 });
 
