@@ -16,7 +16,8 @@
     "gulp-rename": "^1.2.0",
     "gulp-bump": "^0.1.8",
     "gulp-css-base64": "^1.1.0",
-    "gulp-gh-pages": "^0.3.2"
+    "gulp-gh-pages": "^0.3.2",
+    "gulp-inject": "^0.4.1"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"

@@ -1,13 +1,13 @@
 var gulp = require('gulp');
 var concat = require('gulp-concat');
 var uglify = require('gulp-uglify');
-var rename = require('gulp-rename');
 var bump = require('gulp-bump');
 var handlebars = require('gulp-handlebars');
 var defineModule = require('gulp-define-module');
 var css2js = require("gulp-css2js");
 var cssBase64 = require('gulp-css-base64');
 var deploy = require("gulp-gh-pages");
+var inject = require("gulp-inject");
 var streamqueue = require('streamqueue');
 var rimraf = require('rimraf');
 var fs = require('fs');
@@ -25,6 +25,12 @@ var paths = {
     ],
     src: 'src/*.js',
 };
+
+gulp.task('index', ['bundle'], function() {
+    gulp.src('./templates/index.html')
+        .pipe(inject(gulp.src(["./build/*.js"], {read: false}), { ignorePath: 'build/', addRootSlash: false }))
+        .pipe(gulp.dest("./build"));
+});
 
 gulp.task('deploy', function () {
     gulp.src("./build/**/*")
@@ -67,14 +73,12 @@ gulp.task('bundle', ['clean'], function() {
     );
 
     return stream.done()
-        .pipe(concat(pkg.name + '.min.js'))
+        .pipe(concat(pkg.name + '-' + pkg.version + '.min.js'))
         .pipe(defineModule('plain', {
             wrapper: '(function(){<%= contents %>}());'
         }))
         .pipe(uglify())
-        .pipe(gulp.dest('build'))
-        .pipe(rename(pkg.name + '-' + pkg.version + '.min.js'))
-        .pipe(gulp.dest('build'));
+        .pipe(gulp.dest('./build'));
 });
 
-gulp.task('default', ['bundle']);
+gulp.task('default', ['bundle', 'index']);
