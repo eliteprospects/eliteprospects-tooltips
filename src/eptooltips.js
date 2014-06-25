@@ -13,28 +13,35 @@ var playerFields = [
 //    'weight',
     'playerStatus',
     'playerPosition',
-//    'shoots',
+    'shoots',
     'imageUrl',
     'country.name',
     'country.iso3166_3',
     'latestPlayerStats.team.name'
 ];
 // Endpoint to get data about the player, [playerId] is replaced with the actual id.
-var playerApiEndpoint = 'http://api.eliteprospects.com/beta/players/[playerId]?fields='+playerFields.join(',');
+var playerApiEndpoint = 'http://api.eliteprospects.com/beta/players/[playerId]?fields=' + playerFields.join(',');
 
-var capitalize = function(s) {
+var capitalize = function (s) {
     return s ? s.charAt(0).toUpperCase() + s.slice(1).toLowerCase() : s;
 };
 
+var calcAge = function (birthday) {
+    if(birthday) {
+        var diff = Date.now() - new Date(birthday).getTime();
+        return Math.abs(new Date(diff).getUTCFullYear() - 1970);
+    }
+};
+
 // Custom helper for printing default value if empty
-Handlebars.registerHelper('ifnotempty', function(prop) {
+Handlebars.registerHelper('ifnotempty', function (prop) {
     return prop ? prop : '-';
 });
 
 // Override setContent since we fetch JSON instead of presentation ready HTML.
 // Convert the JSON into HTML with a handlebars template.
-Opentip.prototype.setContent = function(content) {
-    if(content) {
+Opentip.prototype.setContent = function (content) {
+    if (content) {
         var template = Handlebars.getTemplate('player');
         var player = JSON.parse(content).data;
         player.isActive = player.playerStatus == 'ACTIVE';
@@ -42,6 +49,7 @@ Opentip.prototype.setContent = function(content) {
         player.isPlayer = player.playerPosition != 'GOALIE';
         player.position = capitalize(player.playerPosition);
         player.shoots = capitalize(player.shoots);
+        player.age = calcAge(player.dateOfBirth);
         this.content = template(player);
     }
     this._newContent = true;
@@ -58,7 +66,7 @@ Opentip.styles.ep = {
     background: '#ffffff',
     borderRadius: 3,
     borderWidth: 0,
-    shadowOffset: [0,4],
+    shadowOffset: [0, 4],
     shadowColor: 'rgba(0,0,0,0.15)',
     shadowBlur: 25
 };

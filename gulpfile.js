@@ -37,10 +37,15 @@ gulp.task('deploy', ['bundle', 'index'], function () {
         .pipe(deploy());
 });
 
-gulp.task('bump', function(cb) {
+gulp.task('bump', function() {
     return gulp.src(['./bower.json', './package.json'])
         .pipe(bump({ type: gulp.env.type }))
         .pipe(gulp.dest('./'));
+});
+
+gulp.task('tag', function() {
+    return gulp.src('package.json')
+        .pipe(tag_version());
 });
 
 gulp.task('clean', function(cb){

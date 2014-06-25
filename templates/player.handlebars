@@ -27,7 +27,7 @@
                     <td>Position:</td>
                     <td>{{ifnotempty position }}</td>
                 </tr>
-                <!--<tr>
+                <tr>
                     <td>Shoots:</td>
                     <td>
                         {{#if isPlayer }}
@@ -36,7 +36,7 @@
                             -
                         {{/if}}
                     </td>
-                </tr>-->
+                </tr>
             </tbody>
         </table>
     </div>
@@ -52,7 +52,11 @@
                 </tr>
                 <tr>
                     <td>Birthday:</td>
-                    <td>{{ifnotempty dateOfBirth }}</td>
+                    <td class="epNoWrap">{{ifnotempty dateOfBirth }}</td>
+                </tr>
+                <tr>
+                    <td>Age:</td>
+                    <td>{{ifnotempty age}}</td>
                 </tr>
                 <tr>
                     <td>Youth team:</td>

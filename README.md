@@ -33,4 +33,21 @@ TODO: options.
 
     npm install
     bower install
-    gulp
+
+### Build release version
+
+    gulp bundle
+
+### Deploy
+
+Bump version, type can be `major`, `minor` or default `patch`
+
+    gulp bump --type=minor
+
+Deploy to `gh-pages`
+
+    gulp deploy
+
+Tag version before pushing to Git
+
+    gulp tag
