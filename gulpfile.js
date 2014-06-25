@@ -8,6 +8,7 @@ var css2js = require("gulp-css2js");
 var cssBase64 = require('gulp-css-base64');
 var deploy = require("gulp-gh-pages");
 var inject = require("gulp-inject");
+var tag_version = require('gulp-tag-version');
 var streamqueue = require('streamqueue');
 var rimraf = require('rimraf');
 var fs = require('fs');
