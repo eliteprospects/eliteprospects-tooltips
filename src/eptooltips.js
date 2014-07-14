@@ -20,7 +20,7 @@ var playerFields = [
     'latestPlayerStats.team.name'
 ];
 // Endpoint to get data about the player, [playerId] is replaced with the actual id.
-var playerApiEndpoint = 'http://api.eliteprospects.com/beta/players/[playerId]?fields=' + playerFields.join(',');
+var playerApiEndpoint = 'http://api.eliteprospects.com/beta/players/[playerId]?apiKey=d8b49aaee3f180db0ca351f547f4e1e8&fields=' + playerFields.join(',');
 
 var capitalize = function (s) {
     return s ? s.charAt(0).toUpperCase() + s.slice(1).toLowerCase() : s;
@@ -47,7 +47,7 @@ Opentip.prototype.setContent = function (content) {
         player.isActive = player.playerStatus == 'ACTIVE';
         player.status = capitalize(player.playerStatus);
         player.isPlayer = player.playerPosition != 'GOALIE';
-        player.position = capitalize(player.playerPosition);
+        player.position = capitalize(player.playerPosition.replace('_', ' '));
         player.shoots = capitalize(player.shoots);
         player.age = calcAge(player.dateOfBirth);
         this.content = template(player);

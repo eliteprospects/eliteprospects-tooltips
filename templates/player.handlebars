@@ -1,9 +1,13 @@
 <div class="epPlayer">
-    <div class="epPlayerPhoto">
-        <img src="http://files.eliteprospects.com/layout/players/{{ imageUrl }}"/>
-    </div>
+    {{#if imageUrl }}
+        <div class="epPlayerPhoto">
+            <img src="http://files.eliteprospects.com/layout/players/{{ imageUrl }}"/>
+        </div>
+    {{/if}}
     <div class="epPlayerName">
-        <img src="http://beta.eliteprospects.com/images/flags/32/{{ country.iso3166_3 }}.png"/>
+        {{#if country }}
+            <img src="http://beta.eliteprospects.com/images/flags/32/{{ country.iso3166_3 }}.png"/>
+        {{/if}}
         {{ firstName }} {{ lastName }}
     </div>
     <div class="epPlayerData">
