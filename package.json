@@ -1,6 +1,6 @@
 {
   "name": "eptooltips",
-  "version": "0.4.1",
+  "version": "0.4.2",
   "description": "Show detailed information about hockey players directly on your site.",
   "main": "eptooltip.js",
   "devDependencies": {
@@ -18,7 +18,8 @@
     "gulp-gh-pages": "^0.3.2",
     "gulp-inject": "^0.4.1",
     "gulp-tag-version": "^1.0.2",
-    "gulp-header": "^1.0.5"
+    "gulp-header": "^1.0.5",
+    "gulp-git": "^0.4.3"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
