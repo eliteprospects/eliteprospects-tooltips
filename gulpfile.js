@@ -2,6 +2,7 @@ var gulp = require('gulp');
 var concat = require('gulp-concat');
 var uglify = require('gulp-uglify');
 var bump = require('gulp-bump');
+var git = require('gulp-git')
 var handlebars = require('gulp-handlebars');
 var defineModule = require('gulp-define-module');
 var css2js = require("gulp-css2js");
@@ -50,7 +51,8 @@ gulp.task('deploy', ['bundle', 'index'], function () {
 gulp.task('bump', function() {
     return gulp.src(['./bower.json', './package.json'])
         .pipe(bump({ type: gulp.env.type }))
-        .pipe(gulp.dest('./'));
+        .pipe(gulp.dest('./'))
+        .pipe(git.commit('bumped version'));
 });
 
 gulp.task('tag', function() {
@@ -96,7 +98,5 @@ gulp.task('bundle', function() {
         .pipe(header(banner, { pkg : pkg } ))
         .pipe(gulp.dest('./build'));
 });
-
-gulp.task('release', ['bump', 'index', 'deploy']);
 
 gulp.task('default', ['index']);
