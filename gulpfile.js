@@ -9,6 +9,7 @@ var cssBase64 = require('gulp-css-base64');
 var deploy = require("gulp-gh-pages");
 var inject = require("gulp-inject");
 var tag_version = require('gulp-tag-version');
+var header = require('gulp-header');
 var streamqueue = require('streamqueue');
 var rimraf = require('rimraf');
 var fs = require('fs');
@@ -24,8 +25,16 @@ var paths = {
         'bower_components/opentip/css/opentip.css',
         'css/*.css'
     ],
-    src: 'src/*.js',
+    src: 'src/*.js'
 };
+
+var banner = ['/**',
+    ' * <%= pkg.name %> - <%= pkg.description %>',
+    ' * @version v<%= pkg.version %>',
+    ' * @link <%= pkg.homepage %>',
+    ' * @license <%= pkg.license %>',
+    ' */',
+    ''].join('\n');
 
 gulp.task('index', ['bundle'], function() {
     return gulp.src('./templates/index.html')
@@ -79,12 +88,15 @@ gulp.task('bundle', ['clean'], function() {
     );
 
     return stream.done()
-        .pipe(concat(pkg.name + '-' + pkg.version + '.min.js'))
+        .pipe(concat(pkg.name + '.min.js'))
         .pipe(defineModule('plain', {
             wrapper: '(function(){<%= contents %>}());'
         }))
         .pipe(uglify())
+        .pipe(header(banner, { pkg : pkg } ))
         .pipe(gulp.dest('./build'));
 });
 
-gulp.task('default', ['bundle', 'index']);
+gulp.task('release', ['bump', 'index', 'deploy']);
+
+gulp.task('default', ['index']);

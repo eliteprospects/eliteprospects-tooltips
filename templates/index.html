@@ -2,25 +2,65 @@
 <html>
 <head lang="en">
     <meta charset="UTF-8">
-    <title>Eliteprospects player tooltips build</title>
-    <style>
-        body {
-            text-align: center;
-            margin-top: 200px;
-        }
-
-        a {
-            display: block;
-            margin: 20px 0;
-        }
-    </style>
+    <meta http-equiv="X-UA-Compatible" content="chrome=1" />
+    <meta name="description" content="Show detailed information about hockey players directly on your site." />
+    <link rel="stylesheet" type="text/css" href="https://github.com/themes/slate/stylesheets/stylesheet.css"/>
+    <title>Eliteprospects Tooltips</title>
 </head>
 <body>
-    <a href="http://www.eliteprospects.com/player.php?player=710" target="_blank">Peter Forsberg</a>
+    <!-- HEADER -->
+    <div id="header_wrap" class="outer">
+        <header class="inner">
+            <a id="forkme_banner" href="https://github.com/menmo/eliteprospects-tooltips">View on GitHub</a>
 
-    <a href="http://www.eliteprospects.com/player.php?player=666" target="_blank">Satan</a>
+            <h1 id="project_title">Eliteprospects Tooltips</h1>
+            <!--<h2 id="project_tagline">Show detailed information about hockey players directly on your site.</h2>-->
+        </header>
+    </div>
 
-    <a href="http://www.eliteprospects.com/player.php?player=286" target="_blank">Great goalie!</a>
+    <!-- MAIN CONTENT -->
+    <div id="main_content_wrap" class="outer">
+        <section id="main_content" class="inner">
+
+            <h1>What's this?</h1>
+
+            <p>Enhance your site with informative tooltips about every hockey player you mention. Every link on the page to a player profile on <a href="http://www.eliteprospects.cm">Eliteprospects.com</a>a> will automatically get a tooltip about that player.</a></p>
+
+            <p>If you use Wordpress, links can easily be created with this <a href="https://wordpress.org/plugins/eliteprospects-player-link/" target="_blank">plugin</a>.</p>
+
+            <h1>Usage</h1>
+
+            <p>
+                Place this script tag on the page and you are good to go.
+            </p>
+
+            <pre><code>&lt;script src="http://menmo.github.io/eliteprospects-tooltips/eptooltips.min.js"&gt;&lt;/script&gt;</code></pre>
+
+            <p>
+                Links should match the following pattern.
+            </p>
+
+            <pre><code>http://www.eliteprospects.com/player.php?player=[ID]</code></pre>
+
+            <h2>Examples</h2>
+
+            <p>
+                <a href="http://www.eliteprospects.com/player.php?player=710" target="_blank">Peter Forsberg</a> is a really good player.
+            </p>
+
+            <p>
+                So is <a href="http://www.eliteprospects.com/player.php?player=286" target="_blank">this</a> fellow swede.
+            </p>
+        </section>
+    </div>
+
+    <!-- FOOTER  -->
+    <div id="footer_wrap" class="outer">
+        <footer class="inner">
+            <p>Published with <a href="http://pages.github.com">GitHub Pages</a></p>
+        </footer>
+    </div>
+
 
     <!-- inject:js -->
     <!-- endinject -->
