@@ -36,7 +36,7 @@ Bump version, type can be `major`, `minor` or default `patch`
 Deploy to `gh-pages`
 
     gulp deploy
-
-Tag version before pushing to Git
+    
+Commit changes and then tag version
 
     gulp tag
