@@ -62,7 +62,7 @@ gulp.task('clean', function(cb){
     rimraf('build/', cb);
 });
 
-gulp.task('bundle', ['clean'], function() {
+gulp.task('bundle', function() {
     var stream = streamqueue({ objectMode: true });
 
     stream.queue(

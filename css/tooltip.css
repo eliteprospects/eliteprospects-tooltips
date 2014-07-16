@@ -1,36 +1,49 @@
 /* OPENTIP OVERRIDES */
-.opentip-container .opentip {
+.style-ep .opentip {
 	padding: 0;
 	overflow: hidden;
 	border-radius: 3px;
 	font-family: sans-serif;
 }
 
+/* RESET */
+.style-ep table,
+.style-ep tr,
+.style-ep td,
+.style-ep img {
+    margin: 0;
+    padding: 0;
+    width: auto;
+    height: auto;
+    border: 0;
+}
+
+
 /* EP TOOLTIP STYLING */
-.epPlayer {
+.style-ep .epPlayer {
 	border-top: 10px solid #0a2f40;
 	padding: 20px;
     font-size: 11px;
 }
 
-.epPlayer:after {
+.style-ep .epPlayer:after {
 	content: "";
 	display: table;
 	clear: both;
 }
 
-.epPlayer .epPlayerPhoto {
+.style-ep .epPlayerPhoto {
 	height: 120px;
 }
 
-.epPlayer .epPlayerPhoto img {
+.style-ep .epPlayerPhoto img {
     display: block;
 	max-width: 100%;
     max-height: 100%;
     margin: 0 auto;
 }
 
-.epPlayer .epPlayerName {
+.style-ep .epPlayerName {
 	margin: 5px;
     font-size: 14px;
     font-weight: bold;
@@ -39,30 +52,34 @@
     line-height: 32px;
 }
 
-.epPlayer .epPlayerName img {
+.style-ep .epPlayerName img {
 	vertical-align: middle;
 }
 
-.epPlayer .epPlayerData {
+.style-ep .epPlayerData {
 	width: 50%;
 	float: left;
 }
 
-.epPlayer .epPlayerData table {
+.style-ep .epPlayerData table {
 	/*table-layout: fixed;*/
+    border: 0;
+    margin: 0;
 }
 
-.epPlayer .epPlayerData td {
+.style-ep .epPlayerData td {
 	text-align: left;
     vertical-align: top;
+    border: 0;
+    padding: 1px;
 }
 
-.epPlayer .epPlayerData td:first-child {
+.style-ep .epPlayerData td:first-child {
 	text-align: right;
-	color: #cccccc;
+	color: #999;
 }
 
-.epPlayer .epPlayerFooter {
+.style-ep .epPlayerFooter {
     clear: both;
     font-style: italic;
     margin-top: 20px;
@@ -71,13 +88,13 @@
     text-align: left;
 }
 
-.epPlayer .epBrandLogo {
+.style-ep .epBrandLogo {
     float: right;
     height: 30px;
     width: 82px;
     background-image: url('../img/ep.png');
 }
 
-.epPlayer .epNoWrap {
+.style-ep .epNoWrap {
     white-space: nowrap;
 }
