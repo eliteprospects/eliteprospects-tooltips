@@ -1,4 +1,4 @@
-# Eliteprospects Tooltips
+# Eliteprospects Tooltips [![Dependency Status](https://gemnasium.com/menmo/eliteprospects-tooltips.svg)](https://gemnasium.com/menmo/eliteprospects-tooltips)
 
 Show detailed information about hockey players directly on your site.
 
