@@ -19,7 +19,10 @@
     "gulp-inject": "^0.4.1",
     "gulp-tag-version": "^1.0.2",
     "gulp-header": "^1.0.5",
-    "gulp-git": "^0.4.3"
+    "gulp-git": "^0.4.3",
+    "handlebars": "^2.0.0-alpha.4",
+    "opentip": "^2.4.3",
+    "jquery": "^2.1.1"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"

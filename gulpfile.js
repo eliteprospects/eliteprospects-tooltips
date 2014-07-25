@@ -18,12 +18,12 @@ var pkg =  JSON.parse(fs.readFileSync('./package.json', 'utf8'));
 
 var paths = {
     libs: [
-        'bower_components/opentip/downloads/opentip-native.js',
-        'bower_components/handlebars/handlebars.runtime.js'
+        'node_modules/opentip/downloads/opentip-native.js',
+        'node_modules/handlebars/dist/handlebars.runtime.js'
     ],
     templates: 'templates/*.handlebars',
     css: [
-        'bower_components/opentip/css/opentip.css',
+        'node_modules/opentip/css/opentip.css',
         'css/*.css'
     ],
     src: 'src/*.js'
@@ -49,7 +49,7 @@ gulp.task('deploy', ['bundle', 'index'], function () {
 });
 
 gulp.task('bump', function() {
-    return gulp.src(['./bower.json', './package.json'])
+    return gulp.src(['./package.json'])
         .pipe(bump({ type: gulp.env.type }))
         .pipe(gulp.dest('./'))
         .pipe(git.commit('bumped version'));
