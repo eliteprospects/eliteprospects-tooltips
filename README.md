@@ -12,16 +12,13 @@ This script can be used in conjunction with our [Wordpress plugin](https://githu
 
 ## Develop
 
-### Requirements (install globally)
+### Requirements
 
 * node
-* bower
-* gulp
 
 ### Install
 
     npm install
-    bower install
 
 ### Build release version
 
