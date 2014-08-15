@@ -6,18 +6,15 @@
 	font-family: sans-serif;
 }
 
-/* RESET */
-.style-ep table,
-.style-ep tr,
-.style-ep td,
-.style-ep img {
+.style-ep * {
+    max-width: none;
+    max-height: none;
     margin: 0;
     padding: 0;
     width: auto;
     height: auto;
     border: 0;
 }
-
 
 /* EP TOOLTIP STYLING */
 .style-ep .epPlayer {
@@ -65,18 +62,21 @@
 	/*table-layout: fixed;*/
     border: 0;
     margin: 0;
+    border-spacing: 0;
+    border-collapse: collapse;
 }
 
 .style-ep .epPlayerData td {
 	text-align: left;
     vertical-align: top;
     border: 0;
-    padding: 1px;
+    padding: 1px 3px;
 }
 
 .style-ep .epPlayerData td:first-child {
 	text-align: right;
 	color: #999;
+    white-space: nowrap;
 }
 
 .style-ep .epPlayerFooter {
