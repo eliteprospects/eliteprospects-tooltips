@@ -1,26 +1,54 @@
 // Regex for finding player links.
-var playerLinkPattern = /http:\/\/www\.eliteprospects\.com\/player\.php\?player=(\d+)/;
-
-// Minimize response by only requesting used fields
-var playerFields = [
-    'firstName',
-    'lastName',
-    'dateOfBirth',
-    'birthPlace.name',
-    'birthPlace.country.abbreviation',
-    'clubOfOrigin.name',
-//    'height',
-//    'weight',
-    'playerStatus',
-    'playerPosition',
-    'shoots',
-    'imageUrl',
-    'country.name',
-    'country.iso3166_3',
-    'latestPlayerStats.team.name'
-];
-// Endpoint to get data about the player, [playerId] is replaced with the actual id.
-var playerApiEndpoint = 'http://api.eliteprospects.com/beta/players/[playerId]?apiKey=d8b49aaee3f180db0ca351f547f4e1e8&fields=' + playerFields.join(',');
+var apiKey = 'd8b49aaee3f180db0ca351f547f4e1e8';
+var types = [{
+        pattern: /http:\/\/www\.eliteprospects\.com\/player\.php\?player=(\d+)/,
+        endpoint: 'http://api.eliteprospects.com/beta/players/[id]?apiKey=[apiKey]&fields=[fields]',
+        fields: [
+            'firstName',
+            'lastName',
+            'dateOfBirth',
+            'birthPlace.name',
+            'birthPlace.country.abbreviation',
+            'clubOfOrigin.name',
+            'playerStatus',
+            'playerPosition',
+            'shoots',
+            'imageUrl',
+            'country.name',
+            'country.iso3166_3',
+            'latestPlayerStats.team.name'
+        ],
+        template: 'player',
+        format: function(data) {
+            data.isActive = data.playerStatus == 'ACTIVE';
+            data.status = capitalize(data.playerStatus);
+            data.isPlayer = data.playerPosition != 'GOALIE';
+            data.position = capitalize(data.playerPosition.replace('_', ' '));
+            data.shoots = capitalize(data.shoots);
+            data.age = calcAge(data.dateOfBirth);
+            return data;
+        }
+    }, {
+        pattern: /http:\/\/www\.eliteprospects\.com\/staff\.php\?staff=(\d+)/,
+        endpoint: 'http://api.eliteprospects.com/beta/staffs/[id]?apiKey=[apiKey]&fields=[fields]',
+        fields: [
+            'firstName',
+            'lastName',
+            'dateOfBirth',
+            'birthPlace.name',
+            'birthPlace.country.abbreviation',
+            'imageUrl',
+            'country.name',
+            'country.iso3166_3',
+            'latestStaffStats.team.name',
+            'latestStaffStats.staffRole'
+        ],
+        template: 'staff',
+        format: function(data) {
+            data.age = calcAge(data.dateOfBirth);
+            return data;
+        }
+}];
 
 var capitalize = function (s) {
     return s ? s.charAt(0).toUpperCase() + s.slice(1).toLowerCase() : s;
@@ -33,6 +61,15 @@ var calcAge = function (birthday) {
     }
 };
 
+var findTypeOfLink = function(link) {
+    for(var j = 0; j < types.length; j++) {
+        var type = types[j];
+        if (match = type.pattern.exec(link)) {
+            return type;
+        }
+    }
+};
+
 // Custom helper for printing default value if empty
 Handlebars.registerHelper('ifnotempty', function (prop) {
     return prop ? prop : '-';
@@ -41,16 +78,13 @@ Handlebars.registerHelper('ifnotempty', function (prop) {
 // Override setContent since we fetch JSON instead of presentation ready HTML.
 // Convert the JSON into HTML with a handlebars template.
 Opentip.prototype.setContent = function (content) {
-    if (content) {
-        var template = Handlebars.getTemplate('player');
-        var player = JSON.parse(content).data;
-        player.isActive = player.playerStatus == 'ACTIVE';
-        player.status = capitalize(player.playerStatus);
-        player.isPlayer = player.playerPosition != 'GOALIE';
-        player.position = capitalize(player.playerPosition.replace('_', ' '));
-        player.shoots = capitalize(player.shoots);
-        player.age = calcAge(player.dateOfBirth);
-        this.content = template(player);
+    if (content[0] == '{') {
+        var type = findTypeOfLink(this.triggerElement[0].href);
+        if(type) {
+            var template = Handlebars.getTemplate(type.template);
+            var data = JSON.parse(content).data;
+            this.content = template(type.format(data));
+        }
     }
     this._newContent = true;
     if (this.visible) {
@@ -76,7 +110,14 @@ var links = document.getElementsByTagName('a');
 var match;
 for (var i = 0; i < links.length; i++) {
     var a = links[i];
-    if (match = playerLinkPattern.exec(a.href)) {
-        new Opentip(a, { style: 'ep', ajax: playerApiEndpoint.replace('[playerId]', match[1]) });
+    var type = findTypeOfLink(a.href);
+    if(type) {
+        new Opentip(a, {
+            style: 'ep',
+            ajax: type.endpoint
+                .replace('[id]', match[1])
+                .replace('[apiKey]', apiKey)
+                .replace('[fields]', type.fields)
+        });
     }
 }

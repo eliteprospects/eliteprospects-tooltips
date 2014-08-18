@@ -1,7 +1,7 @@
 <div class="epContent">
     {{#if imageUrl }}
         <div class="epPhoto">
-            <img src="http://files.eliteprospects.com/layout/players/{{ imageUrl }}"/>
+            <img src="http://files.eliteprospects.com/layout/staffs/{{ imageUrl }}"/>
         </div>
     {{/if}}
     <div class="epName">
@@ -17,7 +17,7 @@
                     <td>Team:</td>
                     <td>
                         {{#if isActive }}
-                            {{ latestPlayerStats.team.name }}
+                            {{ latestStaffStats.team.name }}
                         {{else}}
                             <em>{{ status }}</em>
                         {{/if}}
@@ -26,20 +26,6 @@
                 <tr>
                     <td>Nation:</td>
                     <td>{{ifnotempty country.name }}</td>
-                </tr>
-                <tr>
-                    <td>Position:</td>
-                    <td>{{ifnotempty position }}</td>
-                </tr>
-                <tr>
-                    <td>Shoots:</td>
-                    <td>
-                        {{#if isPlayer }}
-                            {{ifnotempty shoots }}
-                        {{else}}
-                            -
-                        {{/if}}
-                    </td>
                 </tr>
             </tbody>
         </table>
@@ -62,24 +48,12 @@
                     <td>Age:</td>
                     <td>{{ifnotempty age}}</td>
                 </tr>
-                <tr>
-                    <td>Youth team:</td>
-                    <td>{{ifnotempty clubOfOrigin.name }}</td>
-                </tr>
-                <!--<tr>
-                    <td>Height:</td>
-                    <td>{{ifnotempty  height }}</td>
-                </tr>
-                <tr>
-                    <td>Weight:</td>
-                    <td>{{ifnotempty weight }}</td>
-                </tr>-->
             </tbody>
         </table>
     </div>
 
     <div class="epFooter">
-         Click for full player profile.
+         Click for full staff profile.
         <div class="epBrandLogo"></div>
     </div>
 </div>

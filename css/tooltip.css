@@ -17,30 +17,30 @@
 }
 
 /* EP TOOLTIP STYLING */
-.style-ep .epPlayer {
+.style-ep .epContent {
 	border-top: 10px solid #0a2f40;
 	padding: 20px;
     font-size: 11px;
 }
 
-.style-ep .epPlayer:after {
+.style-ep .ep:after {
 	content: "";
 	display: table;
 	clear: both;
 }
 
-.style-ep .epPlayerPhoto {
+.style-ep .epPhoto {
 	height: 120px;
 }
 
-.style-ep .epPlayerPhoto img {
+.style-ep .epPhoto img {
     display: block;
 	max-width: 100%;
     max-height: 100%;
     margin: 0 auto;
 }
 
-.style-ep .epPlayerName {
+.style-ep .epName {
 	margin: 5px;
     font-size: 14px;
     font-weight: bold;
@@ -49,16 +49,16 @@
     line-height: 32px;
 }
 
-.style-ep .epPlayerName img {
+.style-ep .epName img {
 	vertical-align: middle;
 }
 
-.style-ep .epPlayerData {
+.style-ep .epData {
 	width: 50%;
 	float: left;
 }
 
-.style-ep .epPlayerData table {
+.style-ep .epData table {
 	/*table-layout: fixed;*/
     border: 0;
     margin: 0;
@@ -66,20 +66,20 @@
     border-collapse: collapse;
 }
 
-.style-ep .epPlayerData td {
+.style-ep .epData td {
 	text-align: left;
     vertical-align: top;
     border: 0;
     padding: 1px 3px;
 }
 
-.style-ep .epPlayerData td:first-child {
+.style-ep .epData td:first-child {
 	text-align: right;
 	color: #999;
     white-space: nowrap;
 }
 
-.style-ep .epPlayerFooter {
+.style-ep .epFooter {
     clear: both;
     font-style: italic;
     margin-top: 20px;
