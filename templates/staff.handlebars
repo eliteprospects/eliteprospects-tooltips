@@ -10,19 +10,18 @@
         {{/if}}
         {{ firstName }} {{ lastName }}
     </div>
+
+    {{#if latestStaffStats}}
+        <div class="epText">
+            {{ latestStaffStats.staffRole }}
+            <span class="epNoWrap">for {{ latestStaffStats.team.name }} in {{ latestStaffStats.league.name }}</span>
+            <span class="epNoWrap">({{ latestStaffStats.season.name }})</span>
+        </div>
+    {{/if}}
+
     <div class="epData">
         <table>
             <tbody>
-                <tr>
-                    <td>Team:</td>
-                    <td>
-                        {{#if isActive }}
-                            {{ latestStaffStats.team.name }}
-                        {{else}}
-                            <em>{{ status }}</em>
-                        {{/if}}
-                    </td>
-                </tr>
                 <tr>
                     <td>Nation:</td>
                     <td>{{ifnotempty country.name }}</td>
@@ -34,16 +33,6 @@
     <div class="epData">
         <table>
             <tbody>
-                <tr>
-                    <td>Birthplace:</td>
-                    <td>
-                        {{ifnotempty birthPlace.name }}{{#if birthPlace.country}}, {{ birthPlace.country.abbreviation }}{{/if}}
-                    </td>
-                </tr>
-                <tr>
-                    <td>Birthday:</td>
-                    <td class="epNoWrap">{{ifnotempty dateOfBirth }}</td>
-                </tr>
                 <tr>
                     <td>Age:</td>
                     <td>{{ifnotempty age}}</td>

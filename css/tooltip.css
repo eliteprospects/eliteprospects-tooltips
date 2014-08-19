@@ -53,6 +53,11 @@
 	vertical-align: middle;
 }
 
+.style-ep .epText {
+    text-align: left;
+    margin: 10px 0 5px;
+}
+
 .style-ep .epData {
 	width: 50%;
 	float: left;
@@ -70,13 +75,14 @@
 	text-align: left;
     vertical-align: top;
     border: 0;
-    padding: 1px 3px;
+    padding: 1px 0;
 }
 
 .style-ep .epData td:first-child {
 	text-align: right;
 	color: #999;
     white-space: nowrap;
+    padding-right: 3px;
 }
 
 .style-ep .epFooter {

@@ -41,6 +41,8 @@ var types = [{
             'country.name',
             'country.iso3166_3',
             'latestStaffStats.team.name',
+            'latestStaffStats.league.name',
+            'latestStaffStats.season.name',
             'latestStaffStats.staffRole'
         ],
         template: 'staff',
