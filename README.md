@@ -19,6 +19,16 @@ This script can be used in conjunction with our [Wordpress plugin](https://githu
 ### Install
 
     npm install
+    
+### Run
+
+Point a webserver at the project root, for example.
+
+    http-server
+    
+Open in browser.
+    
+    http://localhost:8080/dev.html
 
 ### Build release version
 

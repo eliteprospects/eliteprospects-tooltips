@@ -15,7 +15,7 @@ var types = [{
             'shoots',
             'imageUrl',
             'country.name',
-            'country.iso3166_3',
+            'country.id',
             'latestPlayerStats.team.name'
         ],
         template: 'player',
@@ -39,7 +39,7 @@ var types = [{
             'birthPlace.country.abbreviation',
             'imageUrl',
             'country.name',
-            'country.iso3166_3',
+            'country.id',
             'latestStaffStats.team.name',
             'latestStaffStats.league.name',
             'latestStaffStats.season.name',
