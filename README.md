@@ -4,7 +4,7 @@ Show detailed information about hockey players directly on your site.
 
 ## Usage
 
-Check out this page: [http://menmo.github.io/eliteprospects-tooltips](http://menmo.github.io/eliteprospects-tooltips)
+Check out this page: [https://menmo.github.io/eliteprospects-tooltips](http://menmo.github.io/eliteprospects-tooltips)
 
 The data is fetched from the [Eliteprospects API](https://github.com/menmo/eliteprospects-api-documentation).
 
@@ -19,15 +19,15 @@ This script can be used in conjunction with our [Wordpress plugin](https://githu
 ### Install
 
     npm install
-    
+
 ### Run
 
 Point a webserver at the project root, for example.
 
     http-server
-    
+
 Open in browser.
-    
+
     http://localhost:8080/dev.html
 
 ### Build release version
@@ -43,7 +43,7 @@ Bump version, type can be `major`, `minor` or default `patch`
 Deploy to `gh-pages`
 
     gulp deploy
-    
+
 Commit changes and then tag version
 
     gulp tag
