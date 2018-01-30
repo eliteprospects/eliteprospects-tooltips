@@ -1,6 +1,6 @@
 {
   "name": "eptooltips",
-  "version": "0.6.0",
+  "version": "0.7.0",
   "description": "Show detailed information about hockey players and staff directly on your site.",
   "main": "eptooltip.js",
   "devDependencies": {
@@ -20,9 +20,9 @@
     "gulp-tag-version": "^1.0.2",
     "gulp-header": "^1.0.5",
     "gulp-git": "^0.4.3",
-    "handlebars": "^1.3.0",
+    "handlebars": "^4.0.11",
     "opentip": "^2.4.3",
-    "jquery": "^2.1.1"
+    "jquery": "^3.3.1"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -36,5 +36,5 @@
   "bugs": {
     "url": "https://github.com/menmo/eliteprospects-tooltips/issues"
   },
-  "homepage": "http://menmo.github.io/eliteprospects-tooltips/"
+  "homepage": "https://menmo.github.io/eliteprospects-tooltips/"
 }
