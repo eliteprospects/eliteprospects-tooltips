@@ -1,7 +1,7 @@
 // Regex for finding player links.
 var apiKey = 'd8b49aaee3f180db0ca351f547f4e1e8';
 var types = [{
-        pattern: /https?:\/\/www\.eliteprospects\.com\/player\.php\?player=(\d+)/,
+        pattern: /https?:\/\/www\.eliteprospects\.com\/player(?:\.php\?player=|\/)(\d+)/,
         endpoint: 'https://ssl-api.eliteprospects.com/beta/players/[id]?apiKey=[apiKey]&fields=[fields]',
         fields: [
             'firstName',
@@ -29,7 +29,7 @@ var types = [{
             return data;
         }
     }, {
-        pattern: /https?:\/\/www\.eliteprospects\.com\/staff\.php\?staff=(\d+)/,
+        pattern: /https?:\/\/www\.eliteprospects\.com\/staff(?:\.php\?staff=|\/)(\d+)/,
         endpoint: 'https://ssl-api.eliteprospects.com/beta/staffs/[id]?apiKey=[apiKey]&fields=[fields]',
         fields: [
             'firstName',

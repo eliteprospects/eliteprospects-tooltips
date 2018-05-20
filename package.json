@@ -1,6 +1,6 @@
 {
   "name": "eptooltips",
-  "version": "0.7.0",
+  "version": "0.7.1",
   "description": "Show detailed information about hockey players and staff directly on your site.",
   "main": "eptooltip.js",
   "devDependencies": {
