@@ -1,8 +1,6 @@
 var gulp = require('gulp');
 var concat = require('gulp-concat');
 var uglify = require('gulp-uglify');
-var bump = require('gulp-bump');
-var git = require('gulp-git');
 var handlebars = require('gulp-handlebars');
 var defineModule = require('gulp-define-module');
 var css2js = require("gulp-css2js");
@@ -47,13 +45,6 @@ function deploy() {
     return gulp.src("./build/**/*")
         .pipe(deploy());
 }
-
-exports.bump = function () {
-    return gulp.src(['./package.json'])
-        .pipe(bump({ type: gulp.env.type }))
-        .pipe(gulp.dest('./'))
-        .pipe(git.commit('bumped version'));
-};
 
 exports.tag = function () {
     return gulp.src('package.json')

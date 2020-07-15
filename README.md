@@ -32,7 +32,7 @@ Open in browser.
 
 ### Build release version
 
-    gulp bundle
+    gulp build
 
 ### Deploy
 
