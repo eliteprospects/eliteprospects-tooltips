@@ -2,48 +2,46 @@
 var apiKey = 'd8b49aaee3f180db0ca351f547f4e1e8';
 var types = [{
         pattern: /https?:\/\/www\.eliteprospects\.com\/player(?:\.php\?player=|\/)(\d+)/,
-        endpoint: 'https://ssl-api.eliteprospects.com/beta/players/[id]?apiKey=[apiKey]&fields=[fields]',
+        endpoint: 'https://api.eliteprospects.com/v1/players/[id]?apiKey=[apiKey]&fields=[fields]',
         fields: [
             'firstName',
             'lastName',
             'dateOfBirth',
-            'birthPlace.name',
-            'birthPlace.country.abbreviation',
-            'clubOfOrigin.name',
-            'playerStatus',
-            'playerPosition',
+            'placeOfBirth',
+            'youthTeam',
+            'status',
+            'position',
             'shoots',
             'imageUrl',
-            'country.name',
-            'country.id',
-            'latestPlayerStats.team.name'
+            'nationality.name',
+            'nationality.flagUrl.small',
+            'latestStats.team.name'
         ],
         template: 'player',
         format: function(data) {
-            data.isActive = data.playerStatus == 'ACTIVE';
-            data.status = capitalize(data.playerStatus);
-            data.isPlayer = data.playerPosition != 'GOALIE';
-            data.position = capitalize(data.playerPosition.replace('_', ' '));
+            data.isActive = data.status == 'ACTIVE';
+            data.status = capitalize(data.status);
+            data.isPlayer = data.position != 'GOALIE';
+            data.position = capitalize(data.position.replace('_', ' '));
             data.shoots = capitalize(data.shoots);
             data.age = calcAge(data.dateOfBirth);
             return data;
         }
     }, {
         pattern: /https?:\/\/www\.eliteprospects\.com\/staff(?:\.php\?staff=|\/)(\d+)/,
-        endpoint: 'https://ssl-api.eliteprospects.com/beta/staffs/[id]?apiKey=[apiKey]&fields=[fields]',
+        endpoint: 'https://api.eliteprospects.com/v1/staff/[id]?apiKey=[apiKey]&fields=[fields]',
         fields: [
             'firstName',
             'lastName',
             'dateOfBirth',
-            'birthPlace.name',
-            'birthPlace.country.abbreviation',
+            'placeOfBirth',
             'imageUrl',
-            'country.name',
-            'country.id',
-            'latestStaffStats.team.name',
-            'latestStaffStats.league.name',
-            'latestStaffStats.season.name',
-            'latestStaffStats.staffRole'
+            'nationality.name',
+            'nationality.flagUrl.small',
+            'latestStats.team.name',
+            'latestStats.league.name',
+            'latestStats.season.slug',
+            'latestStats.role'
         ],
         template: 'staff',
         format: function(data) {

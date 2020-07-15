@@ -1,12 +1,12 @@
 <div class="epContent">
     {{#if imageUrl }}
         <div class="epPhoto">
-            <img src="https://files.eliteprospects.com/layout/players/{{ imageUrl }}"/>
+            <img src="{{ imageUrl }}"/>
         </div>
     {{/if}}
     <div class="epName">
-        {{#if country }}
-            <img src="https://files.eliteprospects.com/layout/flags/{{ country.id }}.gif"/>
+        {{#if nationality.flagUrl.small }}
+            <img src="{{ nationality.flagUrl.small }}"/>
         {{/if}}
         {{ firstName }} {{ lastName }}
     </div>
@@ -24,8 +24,8 @@
                     </td>
                 </tr>
                 <tr>
-                    <td>Nation:</td>
-                    <td>{{ifnotempty country.name }}</td>
+                    <td>Nationality:</td>
+                    <td>{{ifnotempty nationality.name }}</td>
                 </tr>
                 <tr>
                     <td>Position:</td>
@@ -51,7 +51,7 @@
                 <tr>
                     <td>Birthplace:</td>
                     <td>
-                        {{ifnotempty birthPlace.name }}{{#if birthPlace.country}}, {{ birthPlace.country.abbreviation }}{{/if}}
+                        {{ifnotempty placeOfBirth }}
                     </td>
                 </tr>
                 <tr>
@@ -64,7 +64,7 @@
                 </tr>
                 <tr>
                     <td>Youth team:</td>
-                    <td>{{ifnotempty clubOfOrigin.name }}</td>
+                    <td>{{ifnotempty youthTeam }}</td>
                 </tr>
                 <!--<tr>
                     <td>Height:</td>

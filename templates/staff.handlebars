@@ -1,21 +1,21 @@
 <div class="epContent">
     {{#if imageUrl }}
         <div class="epPhoto">
-            <img src="https://files.eliteprospects.com/layout/staff/{{ imageUrl }}"/>
+            <img src="{{ imageUrl }}"/>
         </div>
     {{/if}}
     <div class="epName">
-        {{#if country }}
-            <img src="https://files.eliteprospects.com/layout/flags/{{ country.id }}.gif"/>
+        {{#if nationality.flagUrl.small }}
+            <img src="{{ nationality.flagUrl.small }}"/>
         {{/if}}
         {{ firstName }} {{ lastName }}
     </div>
 
-    {{#if latestStaffStats}}
+    {{#if latestStats}}
         <div class="epText">
-            {{ latestStaffStats.staffRole }}
-            <span class="epNoWrap">for {{ latestStaffStats.team.name }} in {{ latestStaffStats.league.name }}</span>
-            <span class="epNoWrap">({{ latestStaffStats.season.name }})</span>
+            {{ latestStats.staffRole }}
+            <span class="epNoWrap">for {{ latestStats.team.name }} in {{ latestStats.league.name }}</span>
+            <span class="epNoWrap">({{ latestStats.season.slug }})</span>
         </div>
     {{/if}}
 
@@ -23,8 +23,8 @@
         <table>
             <tbody>
                 <tr>
-                    <td>Nation:</td>
-                    <td>{{ifnotempty country.name }}</td>
+                    <td>Nationality:</td>
+                    <td>{{ifnotempty nationality.name }}</td>
                 </tr>
             </tbody>
         </table>
