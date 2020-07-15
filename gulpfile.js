@@ -37,34 +37,34 @@ var banner = ['/**',
     ' */',
     ''].join('\n');
 
-gulp.task('index', ['bundle'], function() {
+function index() {
     return gulp.src('./templates/index.html')
         .pipe(inject(gulp.src(["./build/*.js"], {read: false}), { ignorePath: 'build/', addRootSlash: false }))
         .pipe(gulp.dest("./build"));
-});
+}
 
-gulp.task('deploy', ['bundle', 'index'], function () {
+function deploy() {
     return gulp.src("./build/**/*")
         .pipe(deploy());
-});
+}
 
-gulp.task('bump', function() {
+exports.bump = function () {
     return gulp.src(['./package.json'])
         .pipe(bump({ type: gulp.env.type }))
         .pipe(gulp.dest('./'))
         .pipe(git.commit('bumped version'));
-});
+};
 
-gulp.task('tag', function() {
+exports.tag = function () {
     return gulp.src('package.json')
         .pipe(tag_version());
-});
+};
 
-gulp.task('clean', function(cb){
+exports.clean = function (cb) {
     rimraf('build/', cb);
-});
+};
 
-gulp.task('bundle', function() {
+function bundle() {
     var stream = streamqueue({ objectMode: true });
 
     stream.queue(
@@ -97,6 +97,13 @@ gulp.task('bundle', function() {
         .pipe(uglify())
         .pipe(header(banner, { pkg : pkg } ))
         .pipe(gulp.dest('./build'));
-});
+}
 
-gulp.task('default', ['index']);
+var build = gulp.series(bundle, index);
+
+exports.bundle = bundle;
+exports.index = index;
+exports.build = build;
+exports.deploy = deploy;
+
+exports.default = build;
