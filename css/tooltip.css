@@ -1,4 +1,8 @@
 /* OPENTIP OVERRIDES */
+.style-ep {
+    z-index: 999999 !important;
+}
+
 .style-ep .opentip {
 	padding: 0;
 	overflow: hidden;

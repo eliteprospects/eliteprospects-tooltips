@@ -105,19 +105,27 @@ Opentip.styles.ep = {
     shadowBlur: 25
 };
 
-// Find all links on the page and attach a tooltip.
-var links = document.getElementsByTagName('a');
-var match;
-for (var i = 0; i < links.length; i++) {
-    var a = links[i];
-    var type = findTypeOfLink(a.href);
-    if(type) {
-        new Opentip(a, {
-            style: 'ep',
-            ajax: type.endpoint
-                .replace('[id]', match[1])
-                .replace('[apiKey]', apiKey)
-                .replace('[fields]', type.fields)
-        });
+var createTooltip = function(a) {
+    for(var j = 0; j < types.length; j++) {
+        var type = types[j];
+        var match = type.pattern.exec(a.href);
+        if (match) {
+           new Opentip(a, {
+                style: 'ep',
+                ajax: type.endpoint
+                    .replace('[id]', match[1])
+                    .replace('[apiKey]', apiKey)
+                    .replace('[fields]', type.fields)
+            });
+        }
     }
 }
+
+// Find all links on the page and attach a tooltip.
+var links = document.getElementsByTagName('a');
+
+for (var i = 0; i < links.length; i++) {
+    createTooltip(links[i]);
+}
+
+window.epTooltip = createTooltip;
